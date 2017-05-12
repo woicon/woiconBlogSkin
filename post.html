@@ -1,0 +1,59 @@
+<script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="container">
+  <div class="pagecontent">
+      <div class="article-wrap">
+       <div class="article">
+          {% if post.ext_featured_image.length %}
+              <div class="f-img"><img src="{{ post.ext_featured_image }}" /></div>
+          {% /if %}
+          <h1>{{ post.title }}</h1>
+        <div class="readmore">
+          <span class="date">{{ post.date }}</span>
+
+          {% if post.cats.@count %}<span>分类 &nbsp;</span> {% /if %}
+          {% for cat in post.cats %}
+              <span class="posted-in"><a href='{{ cat.url }}'>{{ cat.name }}</a></span>
+          {% /for %} 
+         
+          <span class="comments">
+            {% if ext_disqus_shortname.length %}
+              <a href="{{ siteURL }}{{post.url}}#disqus_thread">comments</a>
+            {% /if %}
+
+            {% if ext_duoshuo_shortname.length %}
+              &nbsp;<a  class="ds-thread-count" data-thread-key="{{post.url}}" data-count-type="comments" href="{{post.url}}#ds-thread"></a>
+            {% /if %}
+          </span>
+        </div>
+      </div><!-- article -->
+      <div class="article-content">
+      {{ post.content }}
+      </div>
+	<div class="pagebar">
+	{% if postNav.prev %}
+	<a href="{{ postNav.prev.url }}" title="分类: {{ postNav.prev.title }}">&laquo; {{ postNav.prev.title }}</a>
+	{% /if %}
+	{% if postNav.next %}
+	<a  href="{{ postNav.next.url }}" title="{{ postNav.next.title }}">{{ postNav.next.title }} &raquo;</a>
+	{% /if %}
+	</div>
+	      <div class="comments-wrap">
+	        <div class="share-comments">
+	          {{ commentAndShareCode }}
+	
+	          {% if ext_disqus_shortname.length %}
+	            <div id="disqus_thread"></div>
+	          {% /if %}
+	
+	          {% if ext_duoshuo_shortname.length %}
+	              <div class="ds-thread" data-thread-key="{{post.url}}" data-url="{{ siteURL }}{{post.url}}" data-title="{{post.title}}"></div>
+	          {% /if %}
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div>
+</div>

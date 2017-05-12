@@ -1,0 +1,62 @@
+
+<div class="social">
+{% if ext_facebook_url.length %}<a target="_blank" class="facebook" href="{{ ext_facebook_url }}" title="Facebook">Facebook</a>{% /if %}
+{% if ext_google_url.length %}<a target="_blank" class="google" href="{{ ext_google_url }}" rel="author" title="Google+">Google+</a>{% /if %}
+{% if ext_stackoverflow_url.length %}<a target="_blank" class="stackoverflow" href="{{ ext_stackoverflow_url }}" title="StackOverflow"></a>{% /if %}
+{% if ext_linkedin_url.length %}<a target="_blank" class="linkedin" href="{{ ext_linkedin_url }}" title="LinkedIn">LinkedIn</a>{% /if %}
+{% if ext_pinterest_url.length %}<a target="_blank" class="pinterest" href="{{ ext_pinterest_url }}" title="Pinterest">Pinterest</a>{% /if %}
+{% if ext_quora_url.length %}<a target="_blank" class="quora" href="{{ ext_quora_url }}" title="Quora">Quora</a>{% /if %}
+{% if ext_instagram_url.length %}<a target="_blank" class="instagram" href="{{ ext_instagram_url }}" title="Instagram">Instagram</a>{% /if %}
+{% if ext_weibo_url.length %}<a target="_blank" class="weibo" href="{{ ext_weibo_url }}" title="weibo">Weibo</a>{% /if %}
+{% if ext_twitter_url.length %}<a target="_blank" class="twitter" target="_blank" href="{{ ext_twitter_url }}" title="Twitter">Twitter</a>{% /if %}
+{% if ext_github_url.length %}<a target="_blank" class="github" target="_blank" href="{{ ext_github_url }}" title="GitHub">GitHub</a>{% /if %}
+{% if ext_email.length %}<a target="_blank" class="email" href="mailto:{{ ext_email }}" title="Email">Email</a>{% /if %}
+
+{% if ext_about.length %}<a target="_blank" class="email" href="mailto:{{ ext_about }}" title="about">Email</a>{% /if %}
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+</div>          	 
+<div class="footer"><p class="copyright">Copyright &copy; 2017
+Powered by <a target="_blank" href="http://www.woicon.com">woicon.com</a></p>
+</div>
+<script>
+	$(document).ready(function(){
+		$('.loading').remove();
+	});
+</script>
+{% if ext_disqus_shortname.length %}
+<script type="text/javascript">
+	
+	
+    var disqus_shortname = '{{ ext_disqus_shortname }}';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<script type="text/javascript">
+var disqus_shortname = '{{ ext_disqus_shortname }}';
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{% /if %}  
+{% if ext_duoshuo_shortname.length %}
+<script type="text/javascript">
+var duoshuoQuery = {short_name:'{{ ext_duoshuo_shortname }}'};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+{% /if %}
+{{ seqAndFlowChartSupport }}
+{{ mathJaxSupport }}
+{{ siteOther }}</body></html>

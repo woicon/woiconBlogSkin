@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  $(function(){
+    $('#menu_item_archives').addClass('is_active');
+  });
+</script>
+<div class="container">
+  <div class="pagecontent">
+    <div id="archivespage">
+        <div class="markdown-body archiveswrap">
+          {% for p in posts %}
+            {% if p.year.length %} 
+                <h1 class="year">{{ p.year }}</h1>
+            {% /if %}
+            <div class="article">
+              <a class="clearlink" href="{{ p.url }}"><h1>{{ p.title }}</h1></a>
+              <div class="readmore clearfix">
+                <span class="date">{{p.date}}</span>
+                {% if p.cats.@count %}<span>&nbsp;&nbsp;分类/</span> {% /if %}
+                {% for cat in p.cats %}
+                    <a href='{{ cat.url }}'>{{ cat.name }}</a>
+                {% /for %} 
+              </div>
+            </div><!-- article -->
+          {% /for %} 
+        </div>
+      </div>
+  </div>
+</div>
